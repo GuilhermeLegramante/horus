@@ -2,6 +2,6 @@
 
 @section('content')
 <div>
-    @livewire('cfop-table')
+    @livewire('costcenter-table')
 </div>
 @endsection

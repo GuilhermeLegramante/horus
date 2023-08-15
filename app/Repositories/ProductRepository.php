@@ -18,17 +18,11 @@ class ProductRepository
         $this->baseQuery = DB::table($this->table)
             ->select(
                 $this->table . '.id AS id',
-                $this->table . '.manufacturer_id AS manufacturerId',
-                $this->table . '.category_id AS categoryId',
                 $this->table . '.description AS description',
                 $this->table . '.code AS code',
                 $this->table . '.barcode AS barcode',
                 $this->table . '.weight AS weight',
                 $this->table . '.measurement_unit_id AS measurementUnitId',
-                $this->table . '.cest_ncm_id AS cestncmId',
-                $this->table . '.cfop_id AS cfopId',
-                $this->table . '.csosn_id AS csosnId',
-                $this->table . '.cost_price AS costPrice',
                 $this->table . '.created_at AS createdAt',
                 $this->table . '.updated_at AS updatedAt',
                 DB::raw("(select COUNT(`product_images`.`id`) from products AS products_2 inner join `product_images` on `product_images`.`product_id` = `products_2`.`id` where products.id = products_2.id
@@ -69,17 +63,11 @@ class ProductRepository
         $registerId = DB::table($this->table)
             ->insertGetId(
                 [
-                    'manufacturer_id' => $data['manufacturerId'],
-                    'category_id' => $data['categoryId'],
                     'description' => $data['description'],
                     'code' => isset($data['code']) ? $data['code'] : null,
                     'barcode' => isset($data['barcode']) ? $data['barcode'] : null,
                     'weight' => isset($data['weight']) ? $data['weight'] : null,
                     'measurement_unit_id' => isset($data['measurementUnitId']) ? $data['measurementUnitId'] : null,
-                    'cest_ncm_id' => isset($data['cestncmId']) ? $data['cestncmId'] : null,
-                    'cfop_id' => isset($data['cfopId']) ? $data['cfopId'] : null,
-                    'csosn_id' => isset($data['csosnId']) ? $data['csosnId'] : null,
-                    'cost_price' => isset($data['costPrice']) ? $data['costPrice'] : null,
                     'user_id' => session()->get('userId'),
                     'created_at' => now(),
                 ]
@@ -113,17 +101,11 @@ class ProductRepository
             ->where('id', $data['recordId'])
             ->update(
                 [
-                    'manufacturer_id' => $data['manufacturerId'],
-                    'category_id' => $data['categoryId'],
                     'description' => $data['description'],
                     'code' => isset($data['code']) ? $data['code'] : null,
                     'barcode' => isset($data['barcode']) ? $data['barcode'] : null,
                     'weight' => isset($data['weight']) ? $data['weight'] : null,
                     'measurement_unit_id' => isset($data['measurementUnitId']) ? $data['measurementUnitId'] : null,
-                    'cest_ncm_id' => isset($data['cestncmId']) ? $data['cestncmId'] : null,
-                    'cfop_id' => isset($data['cfopId']) ? $data['cfopId'] : null,
-                    'csosn_id' => isset($data['csosnId']) ? $data['csosnId'] : null,
-                    'cost_price' => isset($data['costPrice']) ? $data['costPrice'] : null,
                     'user_id' => session()->get('userId'),
                     'updated_at' => now(),
                 ]
@@ -187,7 +169,7 @@ class ProductRepository
     private function uploadFiles($images, $productId)
     {
         foreach ($images as $file) {
-            $path = '_cantina-store/produtos';
+            $path = '_horus/produtos';
 
             $filename = Str::random(4) . '_' . $file->getClientOriginalName();
 

@@ -9,7 +9,7 @@
         $('#measurementUnit-form-modal').modal('show');
     });
 
-    window.livewire.on('hideDemandFormModal', () => {
+    window.livewire.on('hideMeasurementUnitFormModal', () => {
         $('#measurementUnit-form-modal').modal('hide');
     });
 

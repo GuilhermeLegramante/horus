@@ -2,6 +2,6 @@
 
 @section('content')
 <div>
-    @livewire('csosn-table')
+    @livewire('center-cost-table')
 </div>
 @endsection

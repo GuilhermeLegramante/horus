@@ -26,4 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/produto')->group(function () {
         Route::get('/', 'ProductController@table')->name('product.table');
     });
+
+    Route::prefix('/centro-de-custos')->group(function () {
+        Route::get('/', 'CostcenterController@table')->name('costcenter.table');
+    });
 });

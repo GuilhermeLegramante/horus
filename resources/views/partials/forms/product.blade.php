@@ -25,30 +25,6 @@
                 ])
             </div>
             <div class="row">
-                @include('partials.inputs.select-modal', [
-                'columnSize' => 12,
-                'label' => 'Fabricante*',
-                'method' => 'showManufacturerSelectModal',
-                'model' => 'manufacturerId',
-                'description' => $manufacturerDescription,
-                //'disabled' => $isEdition,
-                'modelId' => $manufacturerId,
-                'cleanFields' => 'manufacturerId,manufacturerDescription',
-                ])
-            </div>
-            <div class="row">
-                @include('partials.inputs.select-modal', [
-                'columnSize' => 12,
-                'label' => 'Categoria*',
-                'method' => 'showCategorySelectModal',
-                'model' => 'categoryId',
-                'description' => $categoryDescription,
-                //'disabled' => $isEdition,
-                'modelId' => $categoryId,
-                'cleanFields' => 'categoryId,categoryDescription',
-                ])
-            </div>
-            <div class="row">
                 @include('partials.inputs.text', [
                 'columnSize' => 12,
                 'label' => 'Descrição*',
@@ -113,14 +89,6 @@
         <div class="tab-pane fade {{ ($activeTab == 3) ? 'active show' : '' }}" id="custom-content-below-messages" role="tabpanel" aria-labelledby="custom-content-below-messages-tab">
 
             <div class="row">
-                @include('partials.inputs.text', [
-                'columnSize' => 12,
-                'label' => 'Preço de Custo',
-                'model' => 'costPrice',
-                'monetaryValue' => true,
-                ])
-            </div>
-            <div class="row">
                 @include('partials.inputs.number', [
                 'columnSize' => 6,
                 'label' => 'Peso ou Volume',
@@ -137,41 +105,6 @@
                 'cleanFields' => 'measurementUnitId,measurementUnitDescription',
                 ])
             </div>
-            <div class="row">
-                @include('partials.inputs.select-modal', [
-                'columnSize' => 12,
-                'label' => 'Código CEST/NCM',
-                'method' => 'showCestncmSelectModal',
-                'model' => 'cestncmId',
-                'description' => $cestncmDescription,
-                //'disabled' => $isEdition,
-                'modelId' => $cestncmId,
-                'cleanFields' => 'cestncmId,cestncmDescription',
-                ])
-            </div>
-            <div class="row">
-                @include('partials.inputs.select-modal', [
-                'columnSize' => 6,
-                'label' => 'CFOP',
-                'method' => 'showCfopSelectModal',
-                'model' => 'cfopId',
-                'description' => $cfopDescription,
-                //'disabled' => $isEdition,
-                'modelId' => $cfopId,
-                'cleanFields' => 'cfopId,cfopDescription',
-                ])
-                @include('partials.inputs.select-modal', [
-                'columnSize' => 6,
-                'label' => 'CSOSN',
-                'method' => 'showCsosnSelectModal',
-                'model' => 'csosnId',
-                'description' => $csosnDescription,
-                //'disabled' => $isEdition,
-                'modelId' => $csosnId,
-                'cleanFields' => 'csosnId,csosnDescription',
-                ])
-            </div>
-
         </div>
     </div>
     <p class="mt-3"><small>*campos obrigatórios</small></p>

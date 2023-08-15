@@ -46,11 +46,11 @@ return [
      */
 
     'logo' => '<b>Hórus</b>',
-    'logo_img' => '',
+    'logo_img' => '/img/horus.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Cantina Store',
+    'logo_img_alt' => 'Hórus',
 
     /*
     |--------------------------------------------------------------------------
@@ -225,6 +225,12 @@ return [
             'text' => 'Parâmetros',
             'icon' => 'nav-icon fas fa-table',
             'submenu' => [
+                [
+                    'text' => 'Centro de Custos',
+                    'icon' => 'nav-icon fas fa-list',
+                    'url' => '/centro-de-custos',
+                    'active' => ['centro-de-custos/*'],
+                ],
                 [
                     'text' => 'Unidade de Medida',
                     'icon' => 'nav-icon fas fa-list',

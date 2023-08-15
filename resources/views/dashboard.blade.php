@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Cantina Store - Dashboard')
+@section('title', 'Hórus - Dashboard')
 
 @section('content_header')
 

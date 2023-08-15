@@ -13,7 +13,7 @@ return [
     |
      */
 
-    'name' => 'Cantina Store',
+    'name' => 'Hórus',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         // Barryvdh\Snappy\ServiceProvider::class,
         Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
-
 
         /*
          * Package Service Providers...
