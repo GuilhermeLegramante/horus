@@ -213,10 +213,10 @@ return [
             'icon' => 'nav-icon fas fa-file-alt',
             'submenu' => [
                 [
-                    'text' => 'Produtos',
+                    'text' => 'Entrada de Produto',
                     'icon' => 'nav-icon fas fa-barcode',
-                    'url' => '/produto',
-                    'active' => ['produto/*'],
+                    'url' => '/entrada-de-produto',
+                    'active' => ['entrada-de-produto/*'],
                 ],
             ],
 
@@ -230,6 +230,12 @@ return [
                     'icon' => 'nav-icon fas fa-list',
                     'url' => '/centro-de-custos',
                     'active' => ['centro-de-custos/*'],
+                ],
+                [
+                    'text' => 'Produtos',
+                    'icon' => 'nav-icon fas fa-barcode',
+                    'url' => '/produto',
+                    'active' => ['produto/*'],
                 ],
                 [
                     'text' => 'Unidade de Medida',

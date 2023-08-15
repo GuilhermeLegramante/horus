@@ -30,4 +30,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/centro-de-custos')->group(function () {
         Route::get('/', 'CostcenterController@table')->name('costcenter.table');
     });
+
+    Route::prefix('/entrada-de-produto')->group(function () {
+        Route::get('/', 'EntryController@table')->name('entry.table');
+    });
 });
