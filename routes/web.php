@@ -19,28 +19,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/{id}', 'UserController@form')->name('user.edit');
     });
 
-    Route::prefix('/categoria')->group(function () {
-        Route::get('/', 'CategoryController@table')->name('category.table');
-    });
-
-    Route::prefix('/fabricante')->group(function () {
-        Route::get('/', 'ManufacturerController@table')->name('manufacturer.table');
-    });
-
     Route::prefix('/unidade-de-medida')->group(function () {
         Route::get('/', 'MeasurementUnitController@table')->name('measurementUnit.table');
-    });
-
-    Route::prefix('/cest-ncm')->group(function () {
-        Route::get('/', 'CestncmController@table')->name('cestncm.table');
-    });
-
-    Route::prefix('/cfop')->group(function () {
-        Route::get('/', 'CfopController@table')->name('cfop.table');
-    });
-
-    Route::prefix('/csosn')->group(function () {
-        Route::get('/', 'CsosnController@table')->name('csosn.table');
     });
 
     Route::prefix('/produto')->group(function () {

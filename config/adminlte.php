@@ -14,7 +14,7 @@ return [
     |
      */
 
-    'title' => 'Cantina Store',
+    'title' => 'Hórus',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,8 +45,8 @@ return [
     |
      */
 
-    'logo' => '<b>Cantina</b>Store',
-    'logo_img' => 'https://hardsoft.s3.sa-east-1.amazonaws.com/_cantina-store/icone-cantina-store.jpg',
+    'logo' => '<b>Hórus</b>',
+    'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -225,36 +225,6 @@ return [
             'text' => 'Parâmetros',
             'icon' => 'nav-icon fas fa-table',
             'submenu' => [
-                [
-                    'text' => 'Categorias',
-                    'icon' => 'nav-icon fas fa-list',
-                    'url' => '/categoria',
-                    'active' => ['categoria/*'],
-                ],
-                [
-                    'text' => 'CEST/NCM',
-                    'icon' => 'nav-icon fas fa-list',
-                    'url' => '/cest-ncm',
-                    'active' => ['cest-ncm/*'],
-                ],
-                [
-                    'text' => 'CFOP',
-                    'icon' => 'nav-icon fas fa-list',
-                    'url' => '/cfop',
-                    'active' => ['cfop/*'],
-                ],
-                [
-                    'text' => 'CSOSN',
-                    'icon' => 'nav-icon fas fa-list',
-                    'url' => '/csosn',
-                    'active' => ['csosn/*'],
-                ],
-                [
-                    'text' => 'Fabricantes',
-                    'icon' => 'nav-icon fas fa-building',
-                    'url' => '/fabricante',
-                    'active' => ['fabricante/*'],
-                ],
                 [
                     'text' => 'Unidade de Medida',
                     'icon' => 'nav-icon fas fa-list',
