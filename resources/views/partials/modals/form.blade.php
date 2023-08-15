@@ -19,9 +19,13 @@
 
                 @include('partials.forms.' . "$entity")
 
+                @if(isset($hideFooter))
+
+                @else
                 <div class="modal-footer">
                     @include('partials.buttons.form-actions')
                 </div>
+                @endif
             </div>
         </div>
     </div>
