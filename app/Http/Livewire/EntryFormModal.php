@@ -7,6 +7,7 @@ use App\Http\Livewire\Traits\Selects\WithProductSelect;
 use App\Http\Livewire\Traits\WithForm;
 use App\Http\Livewire\Traits\WithTabs;
 use App\Services\Mask;
+use Exception;
 use Livewire\Component;
 
 class EntryFormModal extends Component
@@ -32,7 +33,7 @@ class EntryFormModal extends Component
 
     protected $inputs = [
         ['field' => 'recordId', 'edit' => true],
-        ['field' => 'note', 'edit' => true, 'type' => 'string'],
+        ['field' => 'products', 'edit' => true],
     ];
 
     protected $listeners = [
@@ -101,6 +102,9 @@ class EntryFormModal extends Component
 
     public function customValidate()
     {
+        if (count($this->products) == 0) {
+            throw new Exception('Inclua ao menos 1 produto para finalizar a ação.');
+        }
         return true;
     }
 
@@ -126,12 +130,14 @@ class EntryFormModal extends Component
 
         $this->calcTotalProducts();
 
-        $this->reset('productId');
-        $this->reset('value');
-        $this->reset('quantity');
-        $this->reset('totalValue');
-        $this->reset('productDescription');
-        $this->reset('note');
+        // $this->reset('productId');
+        // $this->reset('value');
+        // $this->reset('quantity');
+        // $this->reset('totalValue');
+        // $this->reset('productDescription');
+        // $this->reset('note');
+
+        // $this->resetValidation();
     }
 
     public function deleteProduct($key)

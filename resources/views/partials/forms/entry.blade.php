@@ -112,7 +112,7 @@
                 <i class="fas fa-times" aria-hidden="true"></i>
                 <strong> CANCELAR &nbsp;</strong>
             </a>
-            <button wire:click.prevent="" wire:key="" type="submit" wire:loading.attr="disabled" class="btn btn-primary btn-sm">
+            <button wire:click.prevent="{{ $isEdition == null ? 'store' : 'update' }}" wire:key="{{ $isEdition ? 'store' : 'update' }}" type="submit" wire:loading.attr="disabled" class="btn btn-primary btn-sm">
                 <strong> FINALIZAR INCLUSÃO &nbsp;</strong>
                 <i class="fas fa-save" aria-hidden="true"></i>
             </button>

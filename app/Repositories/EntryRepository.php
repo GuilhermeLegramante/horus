@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Services\LogService;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class EntryRepository
@@ -25,8 +26,8 @@ class EntryRepository
                 $this->table . '.note AS note',
                 $this->table . '.quantity AS quantity',
                 $this->table . '.value AS value',
-                'center_cost.id AS centerCostId',
-                'center_cost.description AS centerCostDescription',
+                'cost_center.id AS centerCostId',
+                'cost_center.description AS centerCostDescription',
                 'products.description AS productDescription',
                 $this->table . '.created_at AS createdAt',
                 $this->table . '.updated_at AS updatedAt',
@@ -62,16 +63,38 @@ class EntryRepository
             null
         );
 
-        $registerId = DB::table($this->table)
-            ->insertGetId(
-                [
-                    'note' => $data['note'],
-                    'user_id' => session()->get('userId'),
-                    'created_at' => now(),
-                ]
-            );
+        $repository = new CostcenterRepository();
 
-        return $registerId;
+        $costCenter = $repository->allSimplified()->first();
+
+        if (!isset($costCenter)) {
+            throw new Exception('Centro de custo primário não configurado');
+        } else {
+            $registerId = DB::table('entries')
+                ->insertGetId(
+                    [
+                        'cost_center_id' => $costCenter->id,
+                        'user_id' => session()->get('userId'),
+                        'created_at' => now(),
+                    ]
+                );
+
+            foreach ($data['products'] as $product) {
+                DB::table($this->table)
+                    ->insertGetId(
+                        [
+                            'entry_id' => $registerId,
+                            'product_id' => $product['id'],
+                            'user_id' => session()->get('userId'),
+                            'quantity' => $product['quantity'],
+                            'value' => $product['value'],
+                            'note' => $product['note'],
+                            'created_at' => now(),
+                        ]
+                    );
+            }
+            return $registerId;
+        }
     }
 
     public function update($data)
