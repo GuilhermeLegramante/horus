@@ -41,10 +41,13 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+                <canvas id="myChart4" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="col-sm-4">
                 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
             </div>
         </div>
@@ -279,6 +282,30 @@
             title: {
                 display: true
                 , text: "Produtos com maior saída"
+            }
+        }
+    });
+
+    var xValues4 = ["Saldo Anterior", "Entradas", "Saídas", "Estoque Atual", "Vendas (Manual)", "Saldo"];
+    var yValues4 = [100, 50, 70, 80, 30, -40];
+    var barColors4 = ["black", "green", "blue", "orange", "brown", "red"];
+
+    new Chart("myChart4", {
+        type: "bar"
+        , data: {
+            labels: xValues4
+            , datasets: [{
+                backgroundColor: barColors4
+                , data: yValues4
+            }]
+        }
+        , options: {
+            legend: {
+                display: false
+            }
+            , title: {
+                display: true
+                , text: "World Wine Production 2018"
             }
         }
     });
