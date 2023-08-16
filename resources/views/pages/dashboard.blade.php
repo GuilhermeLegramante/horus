@@ -20,8 +20,8 @@
                     <th class="p-1 text-center">Item</th>
                     <th class="p-1 w-40">Descrição</th>
                     <th class="p-1 text-center">Saldo Anterior</th>
-                    <th class="p-1 text-right">Entradas</th>
-                    <th class="p-1 text-right">Saídas Balcão</th>
+                    <th class="p-1 text-center">Entradas</th>
+                    <th class="p-1 text-center">Saídas Balcão</th>
                     <th class="p-1 text-center">Estoque Atual</th>
                     <th class="p-1 text-center">Vendas (Manual)</th>
                     <th class="p-1 text-center">Saldo Balcão</th>
