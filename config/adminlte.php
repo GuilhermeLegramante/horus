@@ -238,6 +238,12 @@ return [
                     'active' => ['produto/*'],
                 ],
                 [
+                    'text' => 'Saldo do Estoque',
+                    'icon' => 'nav-icon fas fa-list',
+                    'url' => '/saldo-do-estoque',
+                    'active' => ['saldo-do-estoque/*'],
+                ],
+                [
                     'text' => 'Unidade de Medida',
                     'icon' => 'nav-icon fas fa-list',
                     'url' => '/unidade-de-medida',

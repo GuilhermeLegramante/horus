@@ -101,7 +101,6 @@ class EntryFormModal extends Component
 
     public function customValidate()
     {
-        dd('a');
         return true;
     }
 

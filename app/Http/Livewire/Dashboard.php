@@ -2,14 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Livewire\Traits\WithDatatable;
+use App\Repositories\FakebalanceRepository;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Dashboard extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithDatatable;
 
-    public $pageTitle = 'Demandas';
+    public $pageTitle = 'Dashboard';
     public $icon = 'fas fa-list';
 
     public $filterStartDate;
@@ -32,6 +34,7 @@ class Dashboard extends Component
 
     public function mount()
     {
+
     }
 
     public function showForm($demandId = null)
@@ -68,12 +71,16 @@ class Dashboard extends Component
     {
         $this->reset([
             'isEdition', 'title', 'subtitle', 'description',
-            'clientId', 'publicationDate', 'demandTypeId', 'demandStatusId'
+            'clientId', 'publicationDate', 'demandTypeId', 'demandStatusId',
         ]);
     }
 
     public function render()
     {
-        return view('livewire.dashboard');
+        $repository = new FakebalanceRepository();
+
+        $data = $repository->all($this->search, $this->sortBy, $this->sortDirection, $this->perPage);
+
+        return view('livewire.dashboard', compact('data'));
     }
 }

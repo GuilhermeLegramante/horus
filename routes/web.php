@@ -34,4 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/entrada-de-produto')->group(function () {
         Route::get('/', 'EntryController@table')->name('entry.table');
     });
+
+    Route::prefix('/saldo-do-estoque')->group(function () {
+        Route::get('/', 'FakebalanceController@table')->name('fakebalance.table');
+    });
 });
